@@ -1,0 +1,279 @@
+
+
+:root {
+    --primary: #4294E3;
+    --secondary: #8F12FD;
+    --light: black;
+    --dark: #262B47;
+}
+
+/*** Spinner ***/
+#spinner {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .5s ease-out, visibility 0s linear .5s;
+    z-index: 99999;
+}
+#spinner.show {
+    transition: opacity .5s ease-out, visibility 0s linear 0s;
+    visibility: visible;
+    opacity: 1;
+}
+
+/*** Headings ***/
+h1, h2, .fw-bold { font-weight: 700 !important; }
+h3, h4, .fw-semi-bold { font-weight: 600 !important; }
+h5, h6, .fw-medium { font-weight: 500 !important; }
+
+/*** Gradient Text & Backgrounds ***/
+.text-primary-gradient {
+    background: linear-gradient(to bottom right, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.text-secondary-gradient {
+    background: linear-gradient(to bottom right, var(--secondary), var(--primary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.bg-primary-gradient {
+    background: linear-gradient(to bottom right, var(--primary), var(--secondary));
+}
+.bg-secondary-gradient {
+    background: linear-gradient(to bottom right, var(--secondary), var(--primary));
+}
+
+/*** Buttons ***/
+.btn {
+    transition: .5s;
+}
+.btn.btn-primary-gradient,
+.btn.btn-secondary-gradient {
+    position: relative;
+    overflow: hidden;
+    border: none;
+    color: #FFFFFF;
+    z-index: 1;
+}
+.btn.btn-primary-gradient::after,
+.btn.btn-secondary-gradient::after {
+    position: absolute;
+    content: "";
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    transition: .5s;
+    z-index: -1;
+    opacity: 0;
+}
+.btn.btn-primary-gradient,
+.btn.btn-secondary-gradient::after {
+    background: linear-gradient(to bottom right, var(--primary), var(--secondary));
+}
+.btn.btn-secondary-gradient,
+.btn.btn-primary-gradient::after {
+    background: linear-gradient(to bottom right, var(--secondary), var(--primary));
+}
+.btn.btn-primary-gradient:hover::after,
+.btn.btn-secondary-gradient:hover::after { opacity: 1; }
+
+/*** Admin Login Button ***/
+.btn-admin-login {
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    color: #fff !important;
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    border: none;
+    display: inline-block;
+}
+
+.btn-admin-login:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+/*** Navbar Adjustments for Mobile ***/
+@media (max-width: 991.98px) {
+    .btn-admin-login {
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+    }
+}
+
+
+/*** Hero Header ***/
+.hero-header {
+    margin-bottom: 6rem;
+    padding: 16rem 0 0 0;
+    background:
+        url("C:/Users/Max Computer/digilex-website/public/img/bg-circle.png"),
+        url("C:/Users/Max Computer/digilex-website/public/img/bg-triangle.png"),
+        url("C:/Users/Max Computer/digilex-website/public/img/bg-bottom.png"),
+        linear-gradient(to bottom right, var(--primary), var(--secondary));
+    background-position:
+        left 0px top 0px,
+        right 0px top 50%,
+        center bottom;
+    background-repeat: no-repeat;
+}
+
+.hero-image-container {
+    position: relative;
+    width: 25%;
+    max-width: 500px; 
+    height: auto; /* make container height automatic based on image */
+    margin: 0 auto;
+}
+
+.hero-bg {
+    position: relative; /* background normal flow me rahe */
+    width: 100%;
+    height: 90%;
+    z-index: 1;
+    border-radius: 10%;
+}
+
+.hero-overlay {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+    
+}
+/*** Screenshot Carousel ***/
+.screenshot-swiper {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Center slides */
+}
+
+.screenshot-carousel {
+    position: relative;
+    width: 260px;   /* Slightly larger for spacing */
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.screenshot-frame {
+    position: relative;
+    width: 253px;
+    height: 500px;
+}
+
+.screenshot-frame::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("") center center no-repeat;
+    background-size: cover;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.screenshot-img {
+    position: relative;
+    width: 223px;
+    height: 470px;
+    z-index: 1;
+    object-fit: cover;
+    border-radius: 8px; /* Optional: rounded corners */
+}
+
+
+/*** Footer ***/
+.footer {
+    margin-top: 6rem;
+    padding-top: 9rem;
+    padding-bottom: 3rem;
+    background:
+        url("C:/Users/Max Computer/digilex-website/public/img/bg-circle.png"),
+        url("C:/Users/Max Computer/digilex-website/public/img/bg-triangle.png"),
+        url("C:/Users/Max Computer/digilex-website/public/img/bg-top.png"),
+        linear-gradient(to bottom right, var(--primary), var(--secondary));
+    background-position:
+        left 0px bottom 0px,
+        right 0px top 50%,
+        center top;
+    background-repeat: no-repeat;
+    color: #fff;
+}
+.footer h4 {
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+.footer a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 0.5rem;
+    transition: 0.3s;
+}
+.footer a:hover {
+    color: #00c6ff;
+}
+.footer .btn.btn-social {
+    margin-right: 5px;
+    width: 40px; height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--light);
+    border: 1px solid rgba(256,256,256,.1);
+    border-radius: 50%;
+    transition: .3s;
+}
+.footer .btn.btn-social:hover { color: var(--primary); }
+.footer .copyright {
+    padding: 25px 0;
+    font-size: 14px;
+    border-top: 1px solid rgba(256,256,256,.1);
+}
+.footer .copyright a { color: var(--light); }
+/*** Back to Top Button ***/
+.back-to-top {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    color: #fff;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+.back-to-top i {
+    font-size: 20px; /* Arrow size */
+    line-height: 1;
+}
+
+.back-to-top:hover {
+    transform: translateY(-3px);
+    opacity: 1;
+}
+
+
+/*** Responsive Adjustments ***/
+@media (max-width: 991px) {
+    .hero-header { padding: 6rem 0 9rem 0; }
+    .hero-image-container { max-width: 100%; }
+}
