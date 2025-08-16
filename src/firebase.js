@@ -9,16 +9,18 @@ import { getFirestore } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyCTPBr1j95w_PeVkUDcqCt1yLWNzewyqR4",
-  authDomain: "digilex-website.firebaseapp.com",
-  databaseURL: "https://digilex-website-default-rtdb.firebaseio.com",
-  projectId: "digilex-website",
-  storageBucket: "digilex-website.firebasestorage.app",
-  messagingSenderId: "280885401452",
-  appId: "1:280885401452:web:0f1cd4403856422ebe4549",
-  measurementId: "G-YN5TQFMXDR"
+  apiKey: "AIzaSyBqz8YzmsOaJ1aByOME5JlxMKKrjk24UzU",
+  authDomain: "signup-79eaa.firebaseapp.com",
+  projectId: "signup-79eaa",
+  storageBucket: "signup-79eaa.firebasestorage.app",
+  messagingSenderId: "163324961873",
+  appId: "1:163324961873:web:846220c695f327f1f30470",
+  measurementId: "G-2Q8MBG0Y6Z"
 };
+
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
