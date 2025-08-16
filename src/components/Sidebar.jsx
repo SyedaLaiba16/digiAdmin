@@ -41,13 +41,6 @@ const Sidebar = () => {
           <span>Content Management</span>
         </Link>
         <Link 
-          to="/media" 
-          className={`menu-item ${location.pathname === '/media' ? 'active' : ''}`}
-        >
-          <FaFileImage />
-          <span>Media Library</span>
-        </Link>
-        <Link 
           to="/reports" 
           className={`menu-item ${location.pathname === '/reports' ? 'active' : ''}`}
         >

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FaUser, FaEnvelope, FaLock, FaEye, FaEyeSlash, FaUserPlus, FaExclamationCircle, FaCheckCircle, FaSpinner } from 'react-icons/fa';
-import { auth, db,firestore } from '../firebase'; // Adjust the path as needed
+import { auth, db,firestore } from '../config/firebase'; // Adjust the path as needed
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { doc, setDoc } from "firebase/firestore"; // Add this import
 import { ref, set } from 'firebase/database';

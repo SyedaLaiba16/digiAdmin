@@ -10,7 +10,7 @@ import {
   FaExclamationCircle, // Add this
   FaCheckCircle // Add if you use this elsewhere
 } from 'react-icons/fa';
-import { auth, db, firestore } from '../firebase';
+import { auth, db, firestore } from '../config/firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { ref, set } from 'firebase/database';
 import { doc, setDoc, getDoc } from 'firebase/firestore';
