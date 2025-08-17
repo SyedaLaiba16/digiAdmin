@@ -7,13 +7,12 @@ import {
   FaEyeSlash, 
   FaSignInAlt, 
   FaSpinner, 
-  FaExclamationCircle, // Add this
-  FaCheckCircle // Add if you use this elsewhere
+  FaExclamationCircle
 } from 'react-icons/fa';
-import { auth, db, firestore } from '../config/firebase';
+import { auth, db, database } from "../config/firebase";
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { ref, set } from 'firebase/database';
-import { doc, setDoc, getDoc } from 'firebase/firestore';
+import { doc,setDoc, getDoc } from 'firebase/firestore';
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({
@@ -77,32 +76,29 @@ const LoginPage = () => {
       const timestamp = new Date().toISOString();
 
       // 2. Check if user exists in Firestore (registered user)
-      const userDoc = await getDoc(doc(firestore, "users", user.uid));
+      const userDoc = await getDoc(doc(db, "users", user.uid));
       if (!userDoc.exists()) {
         throw new Error("No registered account found with this email.");
       }
-if (userDoc.data()?.isAdmin) {
-  navigate('/admin-dashboard'); // Admin route
-} else {
-  navigate('/landing'); // Normal user route
-}
-// 👆 END OF ADMIN CHECK 👆
 
+      // 3. Check if admin and redirect accordingly
+      if (userDoc.data()?.isAdmin) {
+        navigate('/admin-dashboard');
+      } else {
+        navigate('/landing');
+      }
 
-      // 3. Store login activity in Realtime Database
-      await set(ref(db, `loginActivities/${user.uid}/${Date.now()}`), {
+      // 4. Store login activity in Realtime Database
+      await set(ref(database, `loginActivities/${user.uid}/${Date.now()}`), {
         email: formData.email,
         loginTime: timestamp,
-        ipAddress: "N/A" // You can add real IP detection if needed
+        ipAddress: "N/A"
       });
 
-      // 4. Update last login in Firestore
-      await setDoc(doc(firestore, "users", user.uid), {
+      // 5. Update last login in Firestore
+      await setDoc(doc(db, "users", user.uid), {
         lastLogin: timestamp
       }, { merge: true });
-
-      // Redirect to dashboard/landing page
-      navigate('/landing');
 
     } catch (error) {
       console.error('Login error:', error);

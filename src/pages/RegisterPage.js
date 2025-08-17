@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { FaUser, FaEnvelope, FaLock, FaEye, FaEyeSlash, FaUserPlus, FaExclamationCircle, FaCheckCircle, FaSpinner } from 'react-icons/fa';
-import { auth, db,firestore } from '../config/firebase'; // Adjust the path as needed
+import { auth, db, database } from "../config/firebase";
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { doc, setDoc } from "firebase/firestore"; // Add this import
+import { doc, setDoc } from "firebase/firestore";
 import { ref, set } from 'firebase/database';
 
 const RegisterPage = () => {
@@ -183,7 +183,7 @@ const RegisterPage = () => {
     return !error;
   };
 
-  // Form submission with Firebase integration (updated version)
+  // Form submission with Firebase integration
   const handleSubmit = async (e) => {
     e.preventDefault();
     
@@ -209,20 +209,20 @@ const RegisterPage = () => {
         const timestamp = new Date().toISOString();
         
         // Save to Realtime Database
-        await set(ref(db, 'users/' + user.uid), {
+        await set(ref(database, 'users/' + user.uid), {
           full_name: formData.full_name,
           email: formData.email,
           createdAt: timestamp
         });
         
         // Save to Firestore
-        await setDoc(doc(firestore, "users", user.uid), {
+        await setDoc(doc(db, "users", user.uid), {
           full_name: formData.full_name,
           email: formData.email,
-          isAdmin: false,  // 👈 Add this line
+          isAdmin: false,
           createdAt: timestamp,
           lastUpdated: timestamp,
-          uid: user.uid  // Storing UID in document for easier queries
+          uid: user.uid
         });
         
         setSuccessMessage('Registration successful!');
