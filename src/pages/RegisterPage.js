@@ -755,7 +755,7 @@ const RegisterPage = () => {
         .password-toggle {
           position: absolute;
           right: 15px;
-          top: 57px;
+          top: 55px;
           color: var(--dark-gray);
           cursor: pointer;
           transition: all 0.3s;
