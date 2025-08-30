@@ -111,9 +111,9 @@ h5, h6, .fw-medium { font-weight: 500 !important; }
     margin-bottom: 6rem;
     padding: 16rem 0 0 0;
     background:
-        url("C:/Users/Max Computer/digilex-website/public/img/bg-circle.png"),
-        url("C:/Users/Max Computer/digilex-website/public/img/bg-triangle.png"),
-        url("C:/Users/Max Computer/digilex-website/public/img/bg-bottom.png"),
+        url("/public/img/bg-circle.png"),
+        url("/public/img/bg-triangle.png"),
+        url("/public/img/bg-bottom.png"),
         linear-gradient(to bottom right, var(--primary), var(--secondary));
     background-position:
         left 0px top 0px,
@@ -176,7 +176,7 @@ h5, h6, .fw-medium { font-weight: 500 !important; }
     top: 0; left: 0;
     width: 100%;
     height: 100%;
-    background: url("") center center no-repeat;
+    background: url("/public/img/screenshot-frame.png") center center no-repeat;
     background-size: cover;
     z-index: 2;
     pointer-events: none;
@@ -198,9 +198,9 @@ h5, h6, .fw-medium { font-weight: 500 !important; }
     padding-top: 9rem;
     padding-bottom: 3rem;
     background:
-        url("C:/Users/Max Computer/digilex-website/public/img/bg-circle.png"),
-        url("C:/Users/Max Computer/digilex-website/public/img/bg-triangle.png"),
-        url("C:/Users/Max Computer/digilex-website/public/img/bg-top.png"),
+        url("/public/img/bg-circle.png"),
+        url("/public/img/bg-triangle.png"),
+        url("/public/img/bg-top.png"),
         linear-gradient(to bottom right, var(--primary), var(--secondary));
     background-position:
         left 0px bottom 0px,

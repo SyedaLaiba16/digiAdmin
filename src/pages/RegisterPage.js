@@ -215,7 +215,7 @@ const RegisterPage = () => {
           createdAt: timestamp
         });
         
-        // Save to Firestore
+        // Save to Firestore users collection (for authentication)
         await setDoc(doc(db, "users", user.uid), {
           full_name: formData.full_name,
           email: formData.email,
@@ -223,6 +223,17 @@ const RegisterPage = () => {
           createdAt: timestamp,
           lastUpdated: timestamp,
           uid: user.uid
+        });
+
+        // Also add to usersadd collection (for management)
+        await setDoc(doc(db, "usersadd", user.uid), {
+          fullName: formData.full_name,
+          email: formData.email,
+          role: "Student", // Default role for registered users
+          status: "active",
+          uid: user.uid,
+          joined: timestamp,
+          lastLogin: null
         });
         
         setSuccessMessage('Registration successful!');
@@ -622,7 +633,7 @@ const RegisterPage = () => {
         .input-icon {
           position: absolute;
           left: 15px;
-          top: 42px;
+          top: 55px;
           color: var(--dark-gray);
           transition: all 0.3s;
         }
@@ -744,7 +755,7 @@ const RegisterPage = () => {
         .password-toggle {
           position: absolute;
           right: 15px;
-          top: 42px;
+          top: 57px;
           color: var(--dark-gray);
           cursor: pointer;
           transition: all 0.3s;

@@ -212,4 +212,93 @@
     font-size: 12px;
   }
 }
+.error-text {
+  color: #d32f2f;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+  display: block;
+}
 
+.password-input-container {
+  position: relative;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #666;
+}
+
+.password-requirements {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.password-requirements ul {
+  margin: 0.25rem 0 0 1rem;
+  padding: 0;
+}
+
+.password-requirements li {
+  list-style-type: none;
+  position: relative;
+  padding-left: 1.25rem;
+}
+
+.password-requirements li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+}
+
+.password-requirements li.valid {
+  color: #388e3c;
+}
+
+.password-requirements li.valid:before {
+  content: "✓";
+}
+
+.password-requirements li.invalid {
+  color: #d32f2f;
+}
+
+.description-tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  width: 200px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.description-tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+.description-cell {
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

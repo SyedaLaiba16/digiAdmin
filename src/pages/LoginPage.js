@@ -12,7 +12,7 @@ import {
 import { auth, db, database } from "../config/firebase";
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { ref, set } from 'firebase/database';
-import { doc,setDoc, getDoc } from 'firebase/firestore';
+import { doc, setDoc, getDoc } from 'firebase/firestore';
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({
@@ -75,30 +75,51 @@ const LoginPage = () => {
       const user = userCredential.user;
       const timestamp = new Date().toISOString();
 
-      // 2. Check if user exists in Firestore (registered user)
-      const userDoc = await getDoc(doc(db, "users", user.uid));
-      if (!userDoc.exists()) {
+      // 2. Check if user exists in either users or usersadd collection
+      const [userDoc, userAddDoc] = await Promise.all([
+        getDoc(doc(db, "users", user.uid)),
+        getDoc(doc(db, "usersadd", user.uid))
+      ]);
+
+      if (!userDoc.exists() && !userAddDoc.exists()) {
         throw new Error("No registered account found with this email.");
       }
 
-      // 3. Check if admin and redirect accordingly
-      if (userDoc.data()?.isAdmin) {
+      // 3. Update last login in both collections if they exist
+      const updatePromises = [];
+      
+      if (userDoc.exists()) {
+        updatePromises.push(
+          setDoc(doc(db, "users", user.uid), {
+            lastLogin: timestamp
+          }, { merge: true })
+        );
+      }
+      
+      if (userAddDoc.exists()) {
+        updatePromises.push(
+          setDoc(doc(db, "usersadd", user.uid), {
+            lastLogin: timestamp
+          }, { merge: true })
+        );
+      }
+      
+      await Promise.all(updatePromises);
+
+      // 4. Check if admin and redirect accordingly
+      const isAdmin = userDoc.data()?.isAdmin || userAddDoc.data()?.role === "Admin";
+      if (isAdmin) {
         navigate('/admin-dashboard');
       } else {
         navigate('/landing');
       }
 
-      // 4. Store login activity in Realtime Database
+      // 5. Store login activity in Realtime Database
       await set(ref(database, `loginActivities/${user.uid}/${Date.now()}`), {
         email: formData.email,
         loginTime: timestamp,
         ipAddress: "N/A"
       });
-
-      // 5. Update last login in Firestore
-      await setDoc(doc(db, "users", user.uid), {
-        lastLogin: timestamp
-      }, { merge: true });
 
     } catch (error) {
       console.error('Login error:', error);
@@ -362,7 +383,7 @@ const LoginPage = () => {
         .input-icon {
           position: absolute;
           left: 15px;
-          top: 42px;
+          top: 55px;
           color: var(--dark-gray);
           transition: all 0.3s;
         }
@@ -429,7 +450,7 @@ const LoginPage = () => {
         .password-toggle {
           position: absolute;
           right: 15px;
-          top: 42px;
+          top: 57px;
           color: var(--dark-gray);
           cursor: pointer;
           transition: all 0.3s;
