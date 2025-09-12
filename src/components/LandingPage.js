@@ -113,7 +113,7 @@ function App() {
             <div className="col-lg-6">
               <img
                 className="img-fluid rounded"
-                src="/img/about.png"
+                src="/img/about2.jpeg"
                 alt="About DigiLex"
               />
             </div>
@@ -222,7 +222,7 @@ function App() {
             <div className="col-lg-6">
               <img
                 className="img-fluid"
-                src="/img/about.png"
+                src="/img/about1.jpeg"
                 alt="Download DigiLex"
               />
             </div>
