@@ -1,5 +1,3 @@
-
-
 :root {
     --primary: #4294E3;
     --secondary: #8F12FD;
@@ -105,7 +103,6 @@ h5, h6, .fw-medium { font-weight: 500 !important; }
     }
 }
 
-
 /*** Hero Header ***/
 .hero-header {
     margin-bottom: 6rem;
@@ -124,60 +121,28 @@ h5, h6, .fw-medium { font-weight: 500 !important; }
 
 .hero-image-container {
     position: relative;
-    width: 25%;
-    max-width: 500px; 
-    height: auto; /* make container height automatic based on image */
-    margin: 0 auto;
-}
-
-.hero-bg {
-    position: relative; /* background normal flow me rahe */
-    width: 100%;
-    height: 90%;
-    z-index: 1;
-    border-radius: 10%;
-}
-
-.hero-overlay {
-    position: absolute; 
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-    pointer-events: none;
-    
-}
-/*** Screenshot Carousel ***/
-.screenshot-swiper {
-    width: 100%;
     display: flex;
-    justify-content: center; /* Center slides */
-}
-
-.screenshot-carousel {
-    position: relative;
-    width: 260px;   /* Slightly larger for spacing */
-    height: 500px;
-    display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 }
 
+/*** Screenshot Frame (Used in both Hero and Carousel) ***/
 .screenshot-frame {
     position: relative;
     width: 253px;
     height: 500px;
+    margin: 0 auto;
 }
 
 .screenshot-frame::before {
     content: "";
     position: absolute;
-    top: 0; left: 0;
+    top: 0; 
+    left: 0;
     width: 100%;
     height: 100%;
     background: url("/public/img/screenshot-frame.png") center center no-repeat;
-    background-size: cover;
+    background-size: contain;
     z-index: 2;
     pointer-events: none;
 }
@@ -186,11 +151,24 @@ h5, h6, .fw-medium { font-weight: 500 !important; }
     position: relative;
     width: 223px;
     height: 470px;
-    z-index: 1;
     object-fit: cover;
-    border-radius: 8px; /* Optional: rounded corners */
+    border-radius: 8px;
+    z-index: 1;
+    margin: 15px 15px 15px 15px;
 }
 
+/*** Screenshot Carousel ***/
+.screenshot-swiper {
+    width: 100%;
+    padding: 20px 0;
+}
+
+.screenshot-carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 550px;
+}
 
 /*** Footer ***/
 .footer {
@@ -241,6 +219,7 @@ h5, h6, .fw-medium { font-weight: 500 !important; }
     border-top: 1px solid rgba(256,256,256,.1);
 }
 .footer .copyright a { color: var(--light); }
+
 /*** Back to Top Button ***/
 .back-to-top {
     position: fixed;
@@ -262,7 +241,7 @@ h5, h6, .fw-medium { font-weight: 500 !important; }
 }
 
 .back-to-top i {
-    font-size: 20px; /* Arrow size */
+    font-size: 20px;
     line-height: 1;
 }
 
@@ -271,9 +250,41 @@ h5, h6, .fw-medium { font-weight: 500 !important; }
     opacity: 1;
 }
 
-
 /*** Responsive Adjustments ***/
 @media (max-width: 991px) {
-    .hero-header { padding: 6rem 0 9rem 0; }
-    .hero-image-container { max-width: 100%; }
+    .hero-header { 
+        padding: 6rem 0 9rem 0; 
+    }
+    
+    .screenshot-frame {
+        width: 220px;
+        height: 440px;
+    }
+    
+    .screenshot-img {
+        width: 195px;
+        height: 410px;
+        margin: 12px 12px 12px 12px;
+    }
+    
+    .screenshot-carousel {
+        height: 480px;
+    }
+}
+
+@media (max-width: 768px) {
+    .screenshot-frame {
+        width: 200px;
+        height: 400px;
+    }
+    
+    .screenshot-img {
+        width: 175px;
+        height: 370px;
+        margin: 10px 10px 10px 12px;
+    }
+    
+    .screenshot-carousel {
+        height: 440px;
+    }
 }
