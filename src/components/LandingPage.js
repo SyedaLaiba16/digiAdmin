@@ -1,22 +1,22 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import './LandingPage.css';
-import { useNavigate } from 'react-router-dom';
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
 
-function App() {
+function LandingPage() {
   const navigate = useNavigate();
 
-  const handleLogout = () => {
-    navigate('/login');
+  const handleAdminLogin = () => {
+    navigate('/login'); // Navigate to login page
   };
-  
+
   return (
     <div>
       {/* Navbar */}
@@ -60,10 +60,10 @@ function App() {
           </div>
 
           <button
-            onClick={handleLogout}
+            onClick={handleAdminLogin}
             className="btn btn-admin-login ms-lg-3 mt-3 mt-lg-0"
           >
-            Logout
+            Admin Login
           </button>
         </div>
       </nav>
@@ -149,7 +149,7 @@ function App() {
                   </div>
                 </div>
               </div>
-              <a href="#" className="btn btn-primary-gradient py-sm-3 px-4 px-sm-5 rounded-pill mt-3">Read More</a>
+              <a href="#download" className="btn btn-primary-gradient py-sm-3 px-4 px-sm-5 rounded-pill mt-3">Download Now</a>
             </div>
           </div>
         </div>
@@ -396,7 +396,10 @@ function App() {
             <div className="col-md-6 text-center text-md-start mb-3 mb-md-0">
               &copy; <a href="#">DigiLex</a>, All Rights Reserved.
               <br />Supervisor: Ms. Ushna
-              <br />Group Members: Nawal Shahid, Sheeza Shabir, Syeda Laiba Wali, Sehar Fatima
+              <br />Group Members: Nawal Shahid, 
+              Sheeza Shabir, 
+              Syeda Laiba Wali, 
+              Sehar Fatima
             </div>
             <div className="col-md-6 text-center text-md-end">
               <a href="#">Home</a>
@@ -416,4 +419,4 @@ function App() {
   );
 }
 
-export default App;
+export default LandingPage;

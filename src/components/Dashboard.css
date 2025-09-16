@@ -75,7 +75,7 @@ table {
 }
 
 table thead {
-  background-color: #007bff;
+  background: linear-gradient(45deg, #4294E3, #8F12FD);
   color: white;
 }
 
@@ -98,6 +98,7 @@ table tbody tr:nth-child(even) {
   color: red;
   font-weight: bold;
 }
+
 .header-actions {
   display: flex;
   align-items: center;
@@ -105,16 +106,61 @@ table tbody tr:nth-child(even) {
 }
 
 .logout-btn {
-   background-color: #ff4d4f;
+  background: linear-gradient(45deg, #4294E3, #8F12FD);
   color: white;
   border: none;
   padding: 8px 16px;
   border-radius: 4px;
   font-size: 0.9rem;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: all 0.3s;
 }
 
 .logout-btn:hover {
-   background-color: #cc0000;
+  background: linear-gradient(45deg, #8F12FD, #4294E3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Additional gradient elements for consistency */
+.card {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.card-header {
+  background: linear-gradient(45deg, #4294E3, #8F12FD);
+  color: white;
+  padding: 10px;
+  margin: -15px -15px 15px -15px;
+  border-radius: 8px 8px 0 0;
+}
+
+/* Button with gradient */
+.btn-gradient {
+  background: linear-gradient(45deg, #4294E3, #8F12FD);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(45deg, #8F12FD, #4294E3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Gradient border for cards */
+.card-gradient {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  border-top: 4px solid;
+  border-image: linear-gradient(45deg, #4294E3, #8F12FD) 1;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
 }
