@@ -1,10 +1,93 @@
+/* Add these styles to your UserManagement.css file */
+
+.action-btn {
+  border: none;
+  background: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 0 5px;
+  transition: all 0.3s ease;
+}
+
+.edit-btn {
+  color: #4294E3;
+}
+
+.edit-btn:hover {
+  background-color: #357ABD;
+  transform: scale(1.05);
+}
+
+.delete-btn {
+  color: #FF416C;
+}
+
+.delete-btn:hover {
+  background-color: #E0355F;
+  transform: scale(1.05);
+}
+
+.action-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Header buttons spacing */
+.header-buttons {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
 .btn-primary {
   background: linear-gradient(45deg, #4294E3, #8F12FD);
   color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
 }
 
 .btn-primary:hover {
   background: linear-gradient(45deg, #8F12FD, #4294E3);
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.btn-logout {
+ background: linear-gradient(45deg, #4294E3, #8F12FD);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.btn-logout:hover {
+  background: linear-gradient(45deg, #FF4B2B, #FF416C);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Header styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.header h2 {
+  margin: 0;
+  color: #333;
 }

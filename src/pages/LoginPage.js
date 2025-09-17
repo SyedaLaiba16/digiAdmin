@@ -215,9 +215,7 @@ const LoginPage = () => {
             </button>
           </form>
           
-          <div className="register-link">
-            Don't have an account? <a href="#" onClick={navigateToRegister}>Create one now</a>
-          </div>
+
         </div>
       </div>
 
