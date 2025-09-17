@@ -74,10 +74,10 @@ function LandingPage() {
           <div className="row g-5 align-items-center">
             {/* Text Section */}
             <div className="col-lg-6 text-center text-lg-start">
-              <h1 className="display-4 text-dark mb-4">
+              <h1 className="display-4 text-light mb-4">
                 DigiLex: Empowering Potential, One Mind at a Time
               </h1>
-              <p className="text-dark mb-4 pb-2">
+              <p className="text-light mb-4 pb-2">
                 DigiLex is an interactive dyslexia-focused app designed for children and teenagers aged 5-16, 
                 offering fun and engaging tools to help them overcome learning challenges. With personalized support, 
                 the app adapts to each user's unique needs, making learning more accessible and enjoyable. 
